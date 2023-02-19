@@ -1,0 +1,19 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: 'JPB - Microsoft Azure Internal Consumption (30a97d01-43b5-41de-b1ce-990d78822ecb)'
+    appName: 'jpbdemodeploy'
+    containers: 'jpbelli/docker-django-webapp-linux:latest'
+
